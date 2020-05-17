@@ -6,7 +6,7 @@ import {
   UPDATE_CONTACT
 } from "./type";
 import axios from "axios";
-//02
+
 export const getContacts = () => async dispatch => {
   const res = await axios.get("//node-cm-api.herokuapp.com/contact");
   dispatch({
