@@ -1,0 +1,12 @@
+@media screen and (max-width: 992px) {
+  .nav-item {
+    display: inline-block;
+    padding: 8px;
+  }
+  .navbar-nav {
+    display: inline-block;
+  }
+  .h4 {
+    font-size: 21px;
+  }
+}

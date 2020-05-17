@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Header = props => {
   const { branding } = props;
@@ -14,11 +14,11 @@ const Header = props => {
 
         <div>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/" className="nav-link">
                 <i className="fas fa-home" /> Home
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link to="/contact/add" className="nav-link">
                 <i className="fas fa-plus" /> Add
@@ -42,7 +42,7 @@ Header.propTypes = {
 
 // Show them without the prop
 Header.defaultProps = {
-  branding: 'My App'
+  branding: "My App"
 };
 
 export default Header;
