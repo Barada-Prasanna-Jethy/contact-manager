@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 
 export const getContacts = () => async dispatch => {
-  const res = await axios.get("http://localhost:3000/contact");
+  const res = await axios.get("http://node-cm-api.herokuapp.com/contact");
   dispatch({
     type: GET_CONTACTS,
     payload: res.data.contacts
@@ -16,7 +16,7 @@ export const getContacts = () => async dispatch => {
 };
 
 export const getContact = id => async dispatch => {
-  const res = await axios.get(`http://localhost:3000/contact/${id}`);
+  const res = await axios.get(`http://node-cm-api.herokuapp.com/contact/${id}`);
   dispatch({
     type: GET_CONTACT,
     payload: res.data.contact
@@ -24,7 +24,7 @@ export const getContact = id => async dispatch => {
 };
 
 export const deleteContact = id => async dispatch => {
-  await axios.delete(`http://localhost:3000/contact/${id}`);
+  await axios.delete(`http://node-cm-api.herokuapp.com/contact/${id}`);
   dispatch({
     type: DELETE_CONTACT,
     payload: id
@@ -32,11 +32,15 @@ export const deleteContact = id => async dispatch => {
 };
 
 export const addContact = contact => async dispatch => {
-  const res = await axios.post(`http://localhost:3000/contact`, contact, {
-    headers: {
-      "Content-Type": "application/json"
+  const res = await axios.post(
+    `http://node-cm-api.herokuapp.com/contact`,
+    contact,
+    {
+      headers: {
+        "Content-Type": "application/json"
+      }
     }
-  });
+  );
 
   const { name, email, phone } = res.data;
   const id = res.data._id;
@@ -53,7 +57,10 @@ export const addContact = contact => async dispatch => {
 };
 
 export const updateContact = (contact, id) => async dispatch => {
-  const res = await axios.patch(`http://localhost:3000/contact/${id}`, contact);
+  const res = await axios.patch(
+    `http://node-cm-api.herokuapp.com/contact/${id}`,
+    contact
+  );
   dispatch({
     type: UPDATE_CONTACT,
     payload: res.data
